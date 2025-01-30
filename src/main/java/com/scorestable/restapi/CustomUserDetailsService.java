@@ -13,6 +13,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
+    private UserDTO mapToDTO(User user) {
+        return new UserDTO(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
+    }
+
     public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
